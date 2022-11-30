@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping({"/auth"})
+@RequestMapping("/auth")
 @CrossOrigin(origins = "https://frond-end-01.web.app")
 public class AuthController {
     @Autowired
@@ -68,7 +68,7 @@ public class AuthController {
         
         return new ResponseEntity(new Mensaje("Usuario Guardado"),HttpStatus.CREATED);
     }
-    @PostMapping({"/login"})
+    @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@RequestBody @Valid LoginUsuario loginUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
